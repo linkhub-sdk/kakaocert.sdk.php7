@@ -275,7 +275,7 @@ class KakaocertService
   }
 } // end of KakaocertService
 
-class KakaocertException \Exception
+class KakaocertException extends \Exception
 {
     public function __construct($response, $code = -99999999, Exception $previous = null)
     {
