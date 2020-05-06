@@ -37,7 +37,7 @@ class KakaocertService
 
   public function __construct($LinkID, $SecretKey)
   {
-    $this->Linkhub = Linkhub::getInstance($LinkID, $SecretKey);
+    $this->Linkhub = Authority::getInstance($LinkID, $SecretKey);
     $this->scopes[] = 'member';
     $this->scopes[] = '310';
     $this->scopes[] = '320';
@@ -106,12 +106,12 @@ class KakaocertService
         $digestTarget = $digestTarget.base64_encode(md5($postdata,true)).chr(10);
         $digestTarget = $digestTarget.$xDate.chr(10);
 
-        $digestTarget = $digestTarget.Linkhub::VERSION.chr(10);
+        $digestTarget = $digestTarget.Authority::VERSION.chr(10);
 
         $digest = base64_encode(hash_hmac('sha1',$digestTarget,base64_decode(strtr($this->Linkhub->getSecretKey(), '-_', '+/')),true));
 
         $header[] = 'x-lh-date: '.$xDate;
-        $header[] = 'x-lh-version: '.Linkhub::VERSION;
+        $header[] = 'x-lh-version: '.Authority::VERSION;
         $header[] = 'x-kc-auth: '.$this->Linkhub->getLinkID().' '.$digest;
 
       }
@@ -161,12 +161,12 @@ class KakaocertService
         $digestTarget = $digestTarget.base64_encode(md5($postdata,true)).chr(10);
         $digestTarget = $digestTarget.$xDate.chr(10);
 
-        $digestTarget = $digestTarget.Linkhub::VERSION.chr(10);
+        $digestTarget = $digestTarget.Authority::VERSION.chr(10);
 
         $digest = base64_encode(hash_hmac('sha1',$digestTarget,base64_decode(strtr($this->Linkhub->getSecretKey(), '-_', '+/')),true));
 
         $header[] = 'x-lh-date: '.$xDate;
-        $header[] = 'x-lh-version: '.Linkhub::VERSION;
+        $header[] = 'x-lh-version: '.Authority::VERSION;
         $header[] = 'x-kc-auth: '.$this->Linkhub->getLinkID().' '.$digest;
 
 
