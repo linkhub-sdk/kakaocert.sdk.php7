@@ -320,9 +320,6 @@ class ResultCMS
   public $receiptID;
 	public $regDT;
 	public $state;
-	public $receiverHP;
-	public $receiverName;
-	public $receiverBirthday;
 	public $expires_in;
 	public $callCenterNum;
 	public $token;
@@ -343,19 +340,12 @@ class ResultCMS
 	public $completeDT;
 	public $verifyDT;
 
-  public $bankAccountName;
-	public $bankAccountNum;
-	public $bankCode;
-	public $clientUserID;
 
   public function fromJsonInfo($jsonInfo)
   {
     isset($jsonInfo->receiptID) ? $this->receiptID = $jsonInfo->receiptID : null;
     isset($jsonInfo->regDT) ? $this->regDT = $jsonInfo->regDT : null;
     isset($jsonInfo->state) ? $this->state = $jsonInfo->state : null;
-    isset($jsonInfo->receiverHP) ? $this->receiverHP = $jsonInfo->receiverHP : null;
-    isset($jsonInfo->receiverName) ? $this->receiverName = $jsonInfo->receiverName : null;
-    isset($jsonInfo->receiverBirthday) ? $this->receiverBirthday = $jsonInfo->receiverBirthday : null;
     isset($jsonInfo->expires_in) ? $this->expires_in = $jsonInfo->expires_in : null;
     isset($jsonInfo->callCenterNum) ? $this->callCenterNum = $jsonInfo->callCenterNum : null;
     isset($jsonInfo->token) ? $this->token = $jsonInfo->token : null;
@@ -374,10 +364,6 @@ class ResultCMS
     isset($jsonInfo->viewDT) ? $this->viewDT = $jsonInfo->viewDT : null;
     isset($jsonInfo->completeDT) ? $this->completeDT = $jsonInfo->completeDT : null;
     isset($jsonInfo->verifyDT) ? $this->verifyDT = $jsonInfo->verifyDT : null;
-    isset($jsonInfo->bankAccountName) ? $this->bankAccountName = $jsonInfo->bankAccountName : null;
-    isset($jsonInfo->bankAccountNum) ? $this->bankAccountNum = $jsonInfo->bankAccountNum : null;
-    isset($jsonInfo->bankCode) ? $this->bankCode = $jsonInfo->bankCode : null;
-    isset($jsonInfo->clientUserID) ? $this->clientUserID = $jsonInfo->clientUserID : null;
   }
 }
 
@@ -403,9 +389,6 @@ class ResultVerifyAuth
   public $receiptID;
 	public $regDT;
 	public $state;
-	public $receiverHP;
-	public $receiverName;
-	public $receiverBirthday;
 	public $expires_in;
 	public $callCenterNum;
 	public $token;
@@ -431,9 +414,6 @@ class ResultVerifyAuth
     isset($jsonInfo->receiptID) ? $this->receiptID = $jsonInfo->receiptID : null;
     isset($jsonInfo->regDT) ? $this->regDT = $jsonInfo->regDT : null;
     isset($jsonInfo->state) ? $this->state = $jsonInfo->state : null;
-    isset($jsonInfo->receiverHP) ? $this->receiverHP = $jsonInfo->receiverHP : null;
-    isset($jsonInfo->receiverName) ? $this->receiverName = $jsonInfo->receiverName : null;
-    isset($jsonInfo->receiverBirthday) ? $this->receiverBirthday = $jsonInfo->receiverBirthday : null;
     isset($jsonInfo->expires_in) ? $this->expires_in = $jsonInfo->expires_in : null;
     isset($jsonInfo->callCenterNum) ? $this->callCenterNum = $jsonInfo->callCenterNum : null;
     isset($jsonInfo->token) ? $this->token = $jsonInfo->token : null;
@@ -477,9 +457,7 @@ class ResultESign
   public $receiptID;
 	public $regDT;
 	public $state;
-	public $receiverHP;
-	public $receiverName;
-	public $receiverBirthday;
+
 	public $expires_in;
 	public $callCenterNum;
 	public $token;
@@ -505,9 +483,6 @@ class ResultESign
     isset($jsonInfo->receiptID) ? $this->receiptID = $jsonInfo->receiptID : null;
     isset($jsonInfo->regDT) ? $this->regDT = $jsonInfo->regDT : null;
     isset($jsonInfo->state) ? $this->state = $jsonInfo->state : null;
-    isset($jsonInfo->receiverHP) ? $this->receiverHP = $jsonInfo->receiverHP : null;
-    isset($jsonInfo->receiverName) ? $this->receiverName = $jsonInfo->receiverName : null;
-    isset($jsonInfo->receiverBirthday) ? $this->receiverBirthday = $jsonInfo->receiverBirthday : null;
     isset($jsonInfo->expires_in) ? $this->expires_in = $jsonInfo->expires_in : null;
     isset($jsonInfo->callCenterNum) ? $this->callCenterNum = $jsonInfo->callCenterNum : null;
     isset($jsonInfo->token) ? $this->token = $jsonInfo->token : null;
