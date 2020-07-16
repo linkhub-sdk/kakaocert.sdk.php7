@@ -21,6 +21,7 @@
  namespace Linkhub\Kakaocert;
 
  use Linkhub\Authority;
+ use Linkhub\LinkhubException;
 
 class KakaocertService
 {
