@@ -11,7 +11,7 @@
  * http://www.linkhub.co.kr
  * Author : Jeogn Yohan (code@linkhub.co.kr)
  * Written : 2020-05-06
- * Updated : 2020-05-06
+ * Updated : 2020-08-31
  *
  * Thanks for your interest.
  * We welcome any suggestions, feedbacks, blames or anythings.
@@ -221,18 +221,27 @@ class KakaocertService
     }
   }
 
-  public function requestESign($ClientCode, $RequestESign)
+  public function requestESign($ClientCode, $RequestESign, $appUseYN = false)
   {
+    $RequestESign->isAppUseYN = $appUseYN;
+
     $postdata = json_encode($RequestESign);
     return $this->executeCURL('/SignToken/Request', $ClientCode, null, true, null, $postdata)->receiptId;
   }
 
-  public function getESignResult($ClientCode, $receiptID)
+  public function getESignResult($ClientCode, $receiptID, $signature = null)
   {
     if (is_null($receiptID) || empty($receiptID)) {
       throw new KakaocertException('접수아이디가 입력되지 않았습니다.');
     }
-    $result = $this->executeCURL('/SignToken/' . $receiptID, $ClientCode);
+
+    $uri = '/SignToken/' . $receiptID;
+
+    if(!is_null($signature) || !empty($signature)) {
+      $uri .= '/'.$signature;
+    }
+
+    $result = $this->executeCURL($uri, $ClientCode);
 
     $ResultESign = new ResultESign();
     $ResultESign->fromJsonInfo($result);
@@ -451,6 +460,7 @@ class RequestESign
 	public $Token;
 	public $isAllowSimpleRegistYN;
 	public $isVerifyNameYN;
+  public $isAppUseYN;
 }
 
 class ResultESign
@@ -478,6 +488,8 @@ class ResultESign
 	public $viewDT;
 	public $completeDT;
 	public $verifyDT;
+  public $appUseYN;
+  public $tx_id;
 
   public function fromJsonInfo($jsonInfo)
   {
@@ -502,6 +514,8 @@ class ResultESign
     isset($jsonInfo->viewDT) ? $this->viewDT = $jsonInfo->viewDT : null;
     isset($jsonInfo->completeDT) ? $this->completeDT = $jsonInfo->completeDT : null;
     isset($jsonInfo->verifyDT) ? $this->verifyDT = $jsonInfo->verifyDT : null;
+    isset($jsonInfo->appUseYN) ? $this->appUseYN = $jsonInfo->appUseYN : null;
+    isset($jsonInfo->tx_id) ? $this->tx_id = $jsonInfo->tx_id : null;
   }
 }
 
