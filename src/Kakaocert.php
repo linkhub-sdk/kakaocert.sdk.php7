@@ -226,7 +226,7 @@ class KakaocertService
     $RequestESign->isAppUseYN = $appUseYN;
 
     $postdata = json_encode($RequestESign);
-    return $this->executeCURL('/SignToken/Request', $ClientCode, null, true, null, $postdata)->receiptId;
+    return $this->executeCURL('/SignToken/Request', $ClientCode, null, true, null, $postdata);
   }
 
   public function getESignResult($ClientCode, $receiptID, $signature = null)
