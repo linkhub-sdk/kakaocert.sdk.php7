@@ -11,7 +11,7 @@
  * http://www.linkhub.co.kr
  * Author : Jeogn Yohan (code@linkhub.co.kr)
  * Written : 2020-05-06
- * Updated : 2020-09-08
+ * Updated : 2021-04-05
  *
  * Thanks for your interest.
  * We welcome any suggestions, feedbacks, blames or anythings.
@@ -531,7 +531,7 @@ class ResultESign
     isset($jsonInfo->clientName) ? $this->clientName = $jsonInfo->clientName : null;
     isset($jsonInfo->tmstitle) ? $this->tmstitle = $jsonInfo->tmstitle : null;
     isset($jsonInfo->tmsmessage) ? $this->tmsmessage = $jsonInfo->tmsmessage : null;
-    
+
     isset($jsonInfo->subClientName) ? $this->subClientName = $jsonInfo->subClientName : null;
     isset($jsonInfo->subClientCode) ? $this->subClientCode = $jsonInfo->subClientCode : null;
     isset($jsonInfo->viewDT) ? $this->viewDT = $jsonInfo->viewDT : null;
