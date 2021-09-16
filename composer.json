@@ -1,7 +1,7 @@
 {
     "name": "linkhub/kakaocert",
     "description": "Kakaocert SDK for php7",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "type": "library",
     "keywords": [
         "linkhub",
@@ -24,7 +24,7 @@
     },
     "require": {
         "php": ">=7.1.3",
-        "linkhub/linkhub": "1.0.14"
+        "linkhub/linkhub": "1.4.0"
     },
     "autoload": {
       "psr-4": {
