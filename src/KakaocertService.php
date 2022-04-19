@@ -366,7 +366,8 @@ class KakaocertException extends \Exception
 
 class RequestCMS
 {
-  public $CallCenterNum;
+    public $CallCenterNum;
+    public $CallCenterName;
 	public $Expires_in;
 	public $PayLoad;
 	public $ReceiverBirthDay;
@@ -393,6 +394,7 @@ class ResultCMS
 	public $state;
 	public $expires_in;
 	public $callCenterNum;
+    public $callCenterName;
 	public $allowSimpleRegistYN;
 	public $verifyNameYN;
 	public $payload;
@@ -417,6 +419,7 @@ class ResultCMS
     isset($jsonInfo->state) ? $this->state = $jsonInfo->state : null;
     isset($jsonInfo->expires_in) ? $this->expires_in = $jsonInfo->expires_in : null;
     isset($jsonInfo->callCenterNum) ? $this->callCenterNum = $jsonInfo->callCenterNum : null;
+    isset($jsonInfo->callCenterName) ? $this->callCenterName = $jsonInfo->callCenterName : null;
 
     isset($jsonInfo->allowSimpleRegistYN) ? $this->allowSimpleRegistYN = $jsonInfo->allowSimpleRegistYN : null;
     isset($jsonInfo->verifyNameYN) ? $this->verifyNameYN = $jsonInfo->verifyNameYN : null;
@@ -439,7 +442,8 @@ class ResultCMS
 
 class RequestVerifyAuth
 {
-  public $CallCenterNum;
+    public $CallCenterNum;
+    public $CallCenterName;
 	public $Expires_in;
 	public $PayLoad;
 	public $ReceiverBirthDay;
@@ -460,6 +464,7 @@ class ResultVerifyAuth
 	public $state;
 	public $expires_in;
 	public $callCenterNum;
+    public $callCenterName;
 	public $allowSimpleRegistYN;
 	public $verifyNameYN;
 	public $payload;
@@ -483,6 +488,7 @@ class ResultVerifyAuth
     isset($jsonInfo->state) ? $this->state = $jsonInfo->state : null;
     isset($jsonInfo->expires_in) ? $this->expires_in = $jsonInfo->expires_in : null;
     isset($jsonInfo->callCenterNum) ? $this->callCenterNum = $jsonInfo->callCenterNum : null;
+    isset($jsonInfo->callCenterName) ? $this->callCenterName = $jsonInfo->callCenterName : null;
 
     isset($jsonInfo->allowSimpleRegistYN) ? $this->allowSimpleRegistYN = $jsonInfo->allowSimpleRegistYN : null;
     isset($jsonInfo->verifyNameYN) ? $this->verifyNameYN = $jsonInfo->verifyNameYN : null;
@@ -505,7 +511,8 @@ class ResultVerifyAuth
 
 class RequestESign
 {
-  public $CallCenterNum;
+    public $CallCenterNum;
+    public $CallCenterName;
 	public $Expires_in;
 	public $PayLoad;
 	public $ReceiverBirthDay;
@@ -517,7 +524,7 @@ class RequestESign
 	public $Token;
 	public $isAllowSimpleRegistYN;
 	public $isVerifyNameYN;
-  public $isAppUseYN;
+    public $isAppUseYN;
 }
 
 class ResultESign
@@ -528,6 +535,7 @@ class ResultESign
 
 	public $expires_in;
 	public $callCenterNum;
+    public $callCenterName;
 	public $allowSimpleRegistYN;
 	public $verifyNameYN;
 	public $payload;
@@ -553,6 +561,7 @@ class ResultESign
     isset($jsonInfo->state) ? $this->state = $jsonInfo->state : null;
     isset($jsonInfo->expires_in) ? $this->expires_in = $jsonInfo->expires_in : null;
     isset($jsonInfo->callCenterNum) ? $this->callCenterNum = $jsonInfo->callCenterNum : null;
+    isset($jsonInfo->callCenterName) ? $this->callCenterName = $jsonInfo->callCenterName : null;
 
     isset($jsonInfo->allowSimpleRegistYN) ? $this->allowSimpleRegistYN = $jsonInfo->allowSimpleRegistYN : null;
     isset($jsonInfo->verifyNameYN) ? $this->verifyNameYN = $jsonInfo->verifyNameYN : null;
