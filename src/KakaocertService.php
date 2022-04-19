@@ -8,10 +8,10 @@
  * This module uses curl and openssl for HTTPS Request. So related modules must
  * be installed and enabled.
  *
- * http://www.linkhub.co.kr
- * Author : Jeogn Yohan (code@linkhub.co.kr)
+ * https://www.linkhub.co.kr
+ * Author : Jeogn Yohan (code@linkhubcorp.com)
  * Written : 2020-05-06
- * Updated : 2021-04-05
+ * Updated : 2022-04-19
  *
  * Thanks for your interest.
  * We welcome any suggestions, feedbacks, blames or anythings.
@@ -37,6 +37,8 @@ class KakaocertService
   private $IPRestrictOnOff = true;
   private $UseStaticIP = false;
   private $UseGAIP = false;
+  private $UseLocalTimeYN = true;
+
   private $scopes = array();
   private $__requestMode = LINKHUB_COMM_MODE;
 
@@ -69,6 +71,11 @@ class KakaocertService
       $this->UseGAIP = $V;
   }
 
+  public function UseLocalTimeYN($V)
+  {
+      $this->UseLocalTimeYN = $V;
+  }
+
   private function getTargetURL(){
       if($this->UseGAIP){
           return KakaocertService::ServiceURL_GA;
@@ -93,13 +100,13 @@ class KakaocertService
     } else {
       $Expiration = new DateTime($targetToken->expiration, new DateTimeZone("UTC"));
 
-      $now = $this->Linkhub->getTime($this->UseStaticIP, false, $this->UseGAIP);
+      $now = $this->Linkhub->getTime($this->UseStaticIP, $this->UseLocalTimeYN, $this->UseGAIP);
       $Refresh = $Expiration < $now;
     }
 
     if ($Refresh) {
       try {
-        $targetToken = $this->Linkhub->getToken(KakaocertService::ServiceID, $CorpNum, $this->scopes, $this->IPRestrictOnOff ? null : "*", $this->UseStaticIP, false, $this->UseGAIP);
+        $targetToken = $this->Linkhub->getToken(KakaocertService::ServiceID, $CorpNum, $this->scopes, $this->IPRestrictOnOff ? null : "*", $this->UseStaticIP, $this->UseLocalTimeYN, $this->UseGAIP);
       } catch (LinkhubException $le) {
         throw new KakaocertException($le->getMessage(), $le->getCode());
       }
