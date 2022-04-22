@@ -322,7 +322,7 @@ class KakaocertService
     $RequestCMS->isAppUseYN = $appUseYN;
 
     $postdata = json_encode($RequestCMS);
-    return $this->executeCURL('/SignDirectDebit/Request', $ClientCode, null, true, null, $postdata)->receiptId;
+    return $this->executeCURL('/SignDirectDebit/Request', $ClientCode, null, true, null, $postdata);
   }
 
   public function getCMSState($ClientCode, $receiptID)
@@ -414,7 +414,7 @@ class ResultCMS
   public $verifyDT;
 
   public $appUseYN;
-
+  public $tx_id;
 
   public function fromJsonInfo($jsonInfo)
   {
@@ -441,6 +441,7 @@ class ResultCMS
     isset($jsonInfo->completeDT) ? $this->completeDT = $jsonInfo->completeDT : null;
     isset($jsonInfo->verifyDT) ? $this->verifyDT = $jsonInfo->verifyDT : null;
     isset($jsonInfo->appUseYN) ? $this->appUseYN = $jsonInfo->appUseYN : null;
+    isset($jsonInfo->tx_id) ? $this->tx_id = $jsonInfo->tx_id : null;
   }
 }
 
