@@ -1,7 +1,7 @@
 {
     "name": "linkhub/kakaocert",
     "description": "Kakaocert SDK for php7",
-    "version": "2.52.0",
+    "version": "2.53.0",
     "type": "library",
     "keywords": [
         "linkhub",
@@ -12,13 +12,13 @@
     "author":[
       {
         "name":"Linkhub Corp",
-        "email":"code@linkhub.co.kr",
+        "email":"code@linkhubcorp.com",
         "homepage":"https://github.com/linkhub-sdk/",
         "role":"Developer"
       }
     ],
     "support": {
-      "email": "code@linkhub.co.kr",
+      "email": "code@linkhubcorp.com",
       "issues": "https://github.com/linkhub-sdk/linkhub.auth.php7/issues",
       "source": "https://github.com/linkhub-sdk/linkhub.auth.php7"
     },
